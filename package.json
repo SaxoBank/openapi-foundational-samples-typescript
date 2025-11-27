@@ -1,0 +1,39 @@
+{
+  "name": "typescript-foundational-samples",
+  "version": "1.0.0",
+  "description": "TypeScript foundational samples for OAuth 2.0 authentication flows and WebSocket streaming",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start:auth": "npm run build && node dist/auth/auth_sample.js",
+    "start:auth-pkce": "npm run build && node dist/auth/auth_sample_PKCE.js",
+    "start:stream-balances": "npm run build && node dist/streaming/streamBalances.js",
+    "dev:auth": "ts-node auth/auth_sample.ts",
+    "dev:auth-pkce": "ts-node auth/auth_sample_PKCE.ts",
+    "dev:stream-balances": "ts-node streaming/streamBalances.ts",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "oauth",
+    "pkce",
+    "authentication",
+    "streaming",
+    "websocket",
+    "saxo",
+    "typescript",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.0",
+    "rimraf": "^6.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
