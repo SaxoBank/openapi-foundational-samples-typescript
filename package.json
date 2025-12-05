@@ -5,11 +5,11 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start:auth": "npm run build && node dist/auth/auth_sample.js",
-    "start:auth-pkce": "npm run build && node dist/auth/auth_sample_PKCE.js",
+    "start:auth": "npm run build && node dist/auth/authSample.js",
+    "start:auth-pkce": "npm run build && node dist/auth/authSamplePkce.js",
     "start:stream-balances": "npm run build && node dist/streaming/streamBalances.js",
-    "dev:auth": "ts-node auth/auth_sample.ts",
-    "dev:auth-pkce": "ts-node auth/auth_sample_PKCE.ts",
+    "dev:auth": "ts-node auth/authSample.ts",
+    "dev:auth-pkce": "ts-node auth/authSamplePkce.ts",
     "dev:stream-balances": "ts-node streaming/streamBalances.ts",
     "clean": "rimraf dist"
   },

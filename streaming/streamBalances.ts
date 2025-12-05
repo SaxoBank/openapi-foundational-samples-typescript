@@ -20,8 +20,8 @@ import {
 
 import fs from "fs";
 import path from "path";
-import { oauth2Server } from "../auth/auth_sample";
-import { oauth2ServerPKCE } from "../auth/auth_sample_PKCE";
+import { oauth2Server } from "../auth/authSample";
+import { oauth2ServerPKCE } from "../auth/authSamplePkce";
 import { TokenResponse } from "../auth/types";
 
 // Load environment variables and setup logging
