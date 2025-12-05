@@ -282,7 +282,7 @@ export function oauth2Server(tokenCallback: tokenCallback, validateGrantType: bo
       res.send(error);
     } else {
       res.send(
-        "<h1>OAuth 2.0 Authorization Code Flow has generated a new access token!</h1>"
+        "<h1>OAuth 2.0 Authorization Code Flow has obtained a new access token!</h1>"
       );
     }
     if (!tokenResponse) {
