@@ -1,6 +1,7 @@
 # OpenAPI TypeScript Samples
 
-TypeScript implementation for Saxo Bank OpenAPI authentication and real-time streaming with automatic token management.
+TypeScript implementation for Saxo Bank OpenAPI authentication and real-time streaming with
+automatic token management.
 
 ## Quick Start
 
@@ -37,7 +38,8 @@ APP_SECRET=your_app_secret_here # Only for Authorization Code flow
 
 ### Balance Streaming
 
-Automatically detects OAuth configuration and handles authentication to stream real-time balance updates:
+Automatically detects OAuth configuration and handles authentication to stream real-time balance
+updates:
 
 ```bash
 npm run dev:stream-balances
@@ -49,7 +51,8 @@ Otherwise defaults to manual token entry, which also disables the refresh flow.
 
 #### How It Works
 
-- **Flow Selection**: From the .env `GRANT_TYPE` to `code` or `pkce` - only the required auth module loads
+- **Flow Selection**: From the .env `GRANT_TYPE` to `code` or `pkce` - only the required auth module
+loads
     - Or use a [24-hour simulation token](https://www.developer.saxo/openapi/token). The streaming
 script
 will prompt you for it if you have not setup the .env file
