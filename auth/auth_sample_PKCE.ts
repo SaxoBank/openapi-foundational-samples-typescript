@@ -299,7 +299,7 @@ export function oauth2ServerPKCE(tokenCallback: tokenCallback, validateGrantType
       res.send(error);
     } else {
       res.send(
-        "<h1>OAuth 2.0 Authorization Code Flow with PKCE has generated a new access token!</h1>"
+        "<h1>OAuth 2.0 Authorization Code Flow with PKCE has obtained a new access token!</h1>"
       );
     }
     if (!tokenResponse) {
