@@ -20,7 +20,7 @@ import {
 
 import fs from "fs";
 import path from "path";
-import { oauth2Server } from "../auth/authSample";
+import { oauth2Server } from "../auth/authSampleCode";
 import { oauth2ServerPKCE } from "../auth/authSamplePkce";
 import { TokenResponse } from "../auth/types";
 

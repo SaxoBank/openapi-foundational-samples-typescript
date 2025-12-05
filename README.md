@@ -11,7 +11,7 @@ TypeScript implementation for Saxo Bank OpenAPI authentication and real-time str
 
 **Available Scripts:**
 
-- **Authorization Code Flow** → `npm run dev:auth`
+- **Authorization Code Flow** → `npm run dev:auth-code`
 - **Authorization Code with PKCE** → `npm run dev:auth-pkce`
 - **WebSocket Streaming** → `npm run dev:stream-balances`
 
@@ -72,7 +72,7 @@ Each subscription tracks: snapshot, last 50 messages, status (`active`, `replace
 The OAuth 2.0 flow samples can also be run independently in order to obtain access tokens:
 
 ```bash
-npm run dev:auth       # Authorization Code Flow
+npm run dev:auth-code  # Authorization Code Flow
 npm run dev:auth-pkce  # Authorization Code with PKCE
 ```
 
