@@ -371,7 +371,7 @@ async function main(): Promise<void> {
       if (ws && ws.connection && ws.connection.readyState === 1) {
         // WebSocket is open
         console.log("Reauthorizing WebSocket with new token...");
-        ws.reauthorize(tokenResponse.access_token);
+        ws.reauthorize(WEBSOCKET_REAUTHORIZE,tokenResponse.access_token);
       }
 
       return null;
