@@ -29,7 +29,7 @@ export const createSaxoWebsocketClient = (): SaxoWebsocket => {
         }
         this.contextId = contextId;
         this.url = url;
-        const wsPath = `${url}/connect?contextId=${contextId}`;
+        const wsPath = `${url}?contextId=${contextId}`;
         this.connection = new WebSocket(
           `${wsPath}&Authorization=Bearer ${accessToken}`
         );
