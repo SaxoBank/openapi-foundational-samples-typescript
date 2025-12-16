@@ -29,7 +29,7 @@ export const createSaxoWebsocketClient = (): SaxoWebsocket => {
         }
         this.contextId = contextId;
         this.url = url;
-        const wsPath = `${url}/connect?contextId=${contextId}`;
+        const wsPath = `${url}?contextId=${contextId}`;
         this.connection = new WebSocket(
           `${wsPath}&Authorization=Bearer ${accessToken}`
         );
@@ -68,13 +68,9 @@ export const createSaxoWebsocketClient = (): SaxoWebsocket => {
       }
       return true;
     },
-    async reauthorize(accessToken: string): Promise<boolean> {
+    async reauthorize(url: string, accessToken: string): Promise<boolean> {
       if (this.connection !== null && this.url && this.contextId) {
-        const reauthPath =
-          `${this.url}/authorize?ContextId=${this.contextId}`.replace(
-            "wss://",
-            "https://"
-          );
+        const reauthPath = `${url}?ContextId=${this.contextId}`;
         console.log("Reauthorizing websocket via:", reauthPath);
         const response = await fetch(reauthPath, {
           method: "PUT",

@@ -122,6 +122,7 @@ export type SaxoWebsocket = {
   ): boolean;
   close(): boolean;
   reauthorize(
+    url: string,
     accessToken: string,
   ): Promise<boolean>;
 };

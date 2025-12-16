@@ -35,7 +35,8 @@ function loadConfig(validateGrantType: boolean = true): Config {
     }
   }
 
-  const redirectUrl = new URL(process.env.REDIRECT_URLS!);
+  const firstRedirectUrl = process.env.REDIRECT_URLS!.split(",")[0];
+  const redirectUrl = new URL(firstRedirectUrl);
   if (redirectUrl.pathname === "/") {
     throw new Error(
       "Redirect URL must include a non-root path (e.g., /callback)"
@@ -48,7 +49,7 @@ function loadConfig(validateGrantType: boolean = true): Config {
   return {
     APP_KEY: process.env.APP_KEY!,
     APP_SECRET: process.env.APP_SECRET!,
-    REDIRECT_URL: process.env.REDIRECT_URLS!,
+    REDIRECT_URL: firstRedirectUrl,
     AUTHORIZATION_URL: process.env.AUTHORIZATION_ENDPOINT!,
     TOKEN_URL: process.env.TOKEN_ENDPOINT!,
     PORT: port,

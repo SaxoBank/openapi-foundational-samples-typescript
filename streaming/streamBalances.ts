@@ -33,7 +33,8 @@ let globalAccessToken: string | null = null;
 // Configuration interface
 interface AppConfig {
   readonly BASE_URL: string;
-  readonly STREAM_URL: string;
+  readonly WEBSOCKET_CONNECT: string;
+  readonly WEBSOCKET_REAUTHORIZE: string;
 }
 
 // Load and validate environment variables
@@ -49,18 +50,14 @@ function loadConfig(): AppConfig {
     );
   }
 
-  const isLive = baseUrl.includes("gateway.saxobank.com/openapi");
-  const streamUrl = isLive
-    ? "wss://live-streaming.saxobank.com/oapi/streaming/ws"
-    : "wss://sim-streaming.saxobank.com/sim/oapi/streaming/ws";
-
   return {
     BASE_URL: baseUrl.replace(/\/$/, ""),
-    STREAM_URL: streamUrl,
+    WEBSOCKET_CONNECT: process.env.WEBSOCKET_CONNECT || "",
+    WEBSOCKET_REAUTHORIZE: process.env.WEBSOCKET_REAUTHORIZE || "",
   };
 }
 
-const { BASE_URL, STREAM_URL } = loadConfig();
+const { BASE_URL, WEBSOCKET_CONNECT, WEBSOCKET_REAUTHORIZE } = loadConfig();
 
 /**
  * Prompts user for access token input via console
@@ -374,7 +371,7 @@ async function main(): Promise<void> {
       if (ws && ws.connection && ws.connection.readyState === 1) {
         // WebSocket is open
         console.log("Reauthorizing WebSocket with new token...");
-        ws.reauthorize(tokenResponse.access_token);
+        ws.reauthorize(WEBSOCKET_REAUTHORIZE,tokenResponse.access_token);
       }
 
       return null;
@@ -555,7 +552,7 @@ async function main(): Promise<void> {
     }
 
     // Open WebSocket connection, include message handler.
-    ws.open(STREAM_URL, contextId, globalAccessToken, onMessageHandler);
+    ws.open(WEBSOCKET_CONNECT, contextId, globalAccessToken, onMessageHandler);
 
     // Subscribe to balance updates for the client
     var subscription = await subscribeToBalances(
